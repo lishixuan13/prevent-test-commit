@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import cac from "cac";
+import { forceCheck } from "./index.js";
 const cli = cac("prevent-test");
 
 cli
@@ -10,8 +11,7 @@ cli
     default: "test",
   })
   .action((files, options) => {
-    console.log(files);
-    console.log(options.name);
+    forceCheck(files, options);
   });
 
 cli.help();
